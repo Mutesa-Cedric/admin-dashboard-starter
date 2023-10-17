@@ -8,7 +8,10 @@ const links: { label: string, href: string }[] = [
         label: "overview", href: '/dashboard'
     },
     {
-        label: "users", href: "/dashboard/users"
+        label: "users (table)", href: "/dashboard/users"
+    },
+    {
+        label: "Analytics (charts)", href: "/dashboard/analytics"
     }
 ]
 

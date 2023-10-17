@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Overview from "./pages/Overview";
 import Users from "./pages/Users";
+import Analytics from "./pages/Analytics";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route path="" element={<Overview />} />
             <Route path="users" element={<Users />} />
+            <Route path="analytics" element={<Analytics />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
