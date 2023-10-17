@@ -1,10 +1,27 @@
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from "react-router-dom";
+import { RecoilRoot } from "recoil";
+import Login from "./pages/Login";
+import Overview from "./pages/Overview";
+import Users from "./pages/Users";
+import NotFound from "./pages/NotFound";
 
 function App() {
 
   return (
-    <div className="bg-gray-200 w-full h-screen flex items-center justify-center">
-      <p className="text-blue-500 font-semibold text-xl">Hello there!</p>
-    </div>
+    <RecoilRoot>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Overview />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </RecoilRoot>
   )
 }
 
