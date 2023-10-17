@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import {
   Route,
   BrowserRouter as Router,
@@ -5,10 +6,11 @@ import {
 } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 import Overview from "./pages/Overview";
 import Users from "./pages/Users";
-import NotFound from "./pages/NotFound";
-import { Toaster } from "react-hot-toast";
+import Home from "./pages/Home";
+import DashboardLayout from "./components/layouts/DashboardLayout";
 
 function App() {
 
@@ -17,9 +19,12 @@ function App() {
       <Router>
         <Toaster />
         <Routes>
-          <Route path="/" element={<Overview />} />
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route path="" element={<Overview />} />
+            <Route path="users" element={<Users />} />
+          </Route>
           <Route path="/login" element={<Login />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

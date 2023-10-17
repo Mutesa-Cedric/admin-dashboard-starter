@@ -6,10 +6,13 @@ import backgroundImage from '../images/background-auth.jpg'
 import { isValidEmail, isValidPassword } from '../utils/validation'
 import { FormEvent, useState } from 'react'
 import toast from 'react-hot-toast'
-
+// navigate
+import {
+    useNavigate
+} from "react-router-dom"
 export default function Login() {
 
-    //   const { signIn, loading } = useAuth();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
@@ -18,12 +21,12 @@ export default function Login() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (isValidEmail(formData.email) && isValidPassword(formData.password)) {
-            //   signIn(formData.email, formData.password);
             setLoading(true);
             setTimeout(() => {
                 setLoading(false);
                 toast.success("Logged in successfully");
-            }, 1200)
+                navigate("/dashboard");
+            }, 1200);
         }
     }
     return (
