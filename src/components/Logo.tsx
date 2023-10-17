@@ -4,7 +4,7 @@ import { JSX } from "react/jsx-runtime";
 export function Logo(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <div className="flex items-center gap-2 w-fit">
-      <svg aria-hidden="true" viewBox="0 0 45 40" {...props}>
+      <svg aria-hidden="true" viewBox="0 0 45 40" {...props} className="shrink-0 h-12 w-12">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -12,7 +12,7 @@ export function Logo(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
           fill="#2563EB"
         />
       </svg>
-      <p className="text-lg font-medium">Your <span className="text-[#2563EB]">App</span></p>
+      <p className="text-lg font-medium shrink-0">Your<span className="text-[#2563EB]">App</span></p>
     </div>
   )
 }
