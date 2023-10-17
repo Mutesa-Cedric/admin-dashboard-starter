@@ -8,12 +8,14 @@ import Login from "./pages/Login";
 import Overview from "./pages/Overview";
 import Users from "./pages/Users";
 import NotFound from "./pages/NotFound";
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
   return (
     <RecoilRoot>
       <Router>
+        <Toaster />
         <Routes>
           <Route path="/" element={<Overview />} />
           <Route path="/login" element={<Login />} />
