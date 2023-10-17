@@ -8,7 +8,7 @@ export default function DashboardLayout() {
             <Navbar />
             <div className="mt-[8vh] flex">
                 <Sidebar />
-                <div className="ml-[15vw] pt-4 pl-4">
+                <div className="ml-[15vw] w-full pt-4 pl-4">
                     <Outlet />
                 </div>
             </div>
