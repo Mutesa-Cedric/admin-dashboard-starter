@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 
 export default function DashboardLayout() {
     return (
-        <div className="w-full min-h-screen ">
+        <div className="w-full ">
             <Navbar />
             <div className="mt-[8vh] flex">
                 <Sidebar />

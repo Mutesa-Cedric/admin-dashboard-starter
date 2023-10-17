@@ -3,6 +3,7 @@ import { GiStoneSphere } from "react-icons/gi"
 import { MdOutlinePersonalVideo } from "react-icons/md";
 import { TbBrandApple } from "react-icons/tb";
 import { FiThumbsUp } from "react-icons/fi";
+import UsageGraph from "../components/UsageGraph";
 
 
 const legend: { color: string; meaning: string }[] = [
@@ -38,7 +39,7 @@ export default function Overview() {
             </div>
           ))}
         </div>
-        {/* <UsageGraph /> */}
+        <UsageGraph />
       </div>
     </div>
   )
