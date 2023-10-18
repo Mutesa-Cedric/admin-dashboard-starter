@@ -2,7 +2,6 @@
 
 import { ChartData, Chart as ChartJS, registerables } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-// import { ChartData as CData } from '@/types';
 ChartJS.register(...registerables);
 
 const options: any = {
@@ -20,7 +19,7 @@ const options: any = {
     },
 };
 
-const UsageGraph = () => {
+export default function BarChart() {
     const data: ChartData<"bar", (number | [number, number] | unknown)[], unknown> = {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [
@@ -67,6 +66,4 @@ const UsageGraph = () => {
             }
         </div>
     );
-};
-
-export default UsageGraph;
+}

@@ -3,7 +3,7 @@ import { GiStoneSphere } from "react-icons/gi"
 import { MdOutlinePersonalVideo } from "react-icons/md";
 import { TbBrandApple } from "react-icons/tb";
 import { FiThumbsUp } from "react-icons/fi";
-import UsageGraph from "../components/UsageGraph";
+import BarChart from "../components/charts/BarChart";
 
 
 const legend: { color: string; meaning: string }[] = [
@@ -21,7 +21,7 @@ export default function Overview() {
           <StatsCard name='Stats' value={12} Icon={GiStoneSphere} />
           <StatsCard name='Another Stats' value={"A value"} Icon={MdOutlinePersonalVideo} />
           <StatsCard name='Yet Another Stats' value={67} Icon={TbBrandApple} />
-          <StatsCard name='Final Stats' value={"another value"} Icon={FiThumbsUp} />
+          <StatsCard name='Final Stats' value={"another val p   ue"} Icon={FiThumbsUp} />
         </div>
       </div>
       <div className='min-h-[50vh]  m-6 '>
@@ -39,7 +39,7 @@ export default function Overview() {
             </div>
           ))}
         </div>
-        <UsageGraph />
+        <BarChart />
       </div>
     </div>
   )

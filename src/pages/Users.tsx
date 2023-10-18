@@ -27,12 +27,12 @@ export default function Users() {
     setInterval(() => {
       setUsers(new Array(12).fill(user));
       setFetchingUsers(false);
-    }, 3000);
+    }, 2000);
   }, []);
 
   return (
     <div className="space-y-4 px-6">
-      <div className="w-full flex justify-between px-5">
+      <div className="w-full flex justify-between">
         <div>
           <h2 className="text-xl font-medium text-gray-700">Users</h2>
           <p className="text-gray-500">Manage your users here.</p>

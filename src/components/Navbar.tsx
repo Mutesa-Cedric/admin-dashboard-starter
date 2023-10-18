@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 
 export default function Navbar() {
     return (
-        <div className="w-full h-[8vh] shadow-md fixed top-0 left-0 bg-white flex items-center justify-between px-6">
+        <div className="w-full h-[8vh] shadow-md fixed top-0 z-50 left-0 bg-white flex items-center justify-between px-6">
             <Link to={'/dashboard'}>
                 <Logo />
             </Link>
