@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { showAddUserModalState } from "../../atoms";
+import { showAddUserModalState, showDeleteUserModalState } from "../../atoms";
 import Navbar from "../Navbar";
 import Sidebar from "../Sidebar";
 import AddUser from "../modals/AddUser";
+import DeleteAccount from "../modals/DeleteAccount";
 
 export default function DashboardLayout() {
     const showAddUser = useRecoilValue(showAddUserModalState);
+    const showDeleteAccount = useRecoilValue(showDeleteUserModalState);
 
     return (
         <div className="w-full ">
@@ -18,6 +20,7 @@ export default function DashboardLayout() {
                 </div>
             </div>
             {showAddUser && <AddUser />}
+            {showDeleteAccount?.show && <DeleteAccount />}
         </div>
     )
 }
