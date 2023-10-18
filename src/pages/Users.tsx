@@ -5,6 +5,8 @@ import { IUser } from "../types";
 import { useEffect, useState } from "react";
 import LoadingState from "../components/states/LoadingState";
 import EmptyState from "../components/states/EmptyState";
+import { useRecoilState } from "recoil";
+import { showAddUserModalState } from "../atoms";
 
 const user: IUser = {
   country: "Rwanda",
@@ -18,6 +20,8 @@ export default function Users() {
   // replace this with actual api call.
   const [fetchingUsers, setFetchingUsers] = useState(true);
   const [users, setUsers] = useState<IUser[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setShow] = useRecoilState(showAddUserModalState);
 
   useEffect(() => {
     setInterval(() => {
@@ -33,7 +37,9 @@ export default function Users() {
           <h2 className="text-xl font-medium text-gray-700">Users</h2>
           <p className="text-gray-500">Manage your users here.</p>
         </div>
-        <Button color="blue" className="rounded-md space-x-2">
+        <Button
+          onClick={() => setShow(true)}
+          color="blue" className="rounded-md space-x-2">
           <span>Add User</span>
           <FiPlus className="text-lg" />
         </Button>

@@ -1,8 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "../Sidebar";
+import { useRecoilValue } from "recoil";
+import { showAddUserModalState } from "../../atoms";
 import Navbar from "../Navbar";
+import Sidebar from "../Sidebar";
+import AddUser from "../modals/AddUser";
 
 export default function DashboardLayout() {
+    const showAddUser = useRecoilValue(showAddUserModalState);
+
     return (
         <div className="w-full ">
             <Navbar />
@@ -12,6 +17,7 @@ export default function DashboardLayout() {
                     <Outlet />
                 </div>
             </div>
+            {showAddUser && <AddUser />}
         </div>
     )
 }
