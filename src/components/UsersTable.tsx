@@ -1,26 +1,17 @@
+import { useRecoilState } from "recoil";
+import { showDeleteUserModalState } from "../atoms";
+import { Button } from "./Button";
+import { RiDeleteBin5Line } from "react-icons/ri"
+import { IUser } from "../types";
 
-interface IUser {
-    country: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    joinedAt: string;
-}
 
-const user: IUser = {
-    country: "Rwanda",
-    firstName: "Hirwa",
-    lastName: "Vanessa",
-    email: "hirwavanessa@gmail.com",
-    joinedAt: "2022-09-07"
-}
 
-export default function UsersTable() {
+export default function UsersTable({ users }: { users: IUser[] }) {
     return (
         <div className="mt-8 flow-root px-5">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <div className="overflow-auto  shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                    <div className="overflow-auto  shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg min-h-[60vh]">
                         <table className="min-w-full  divide-y divide-gray-300">
                             <thead className="">
                                 <tr>
@@ -47,7 +38,7 @@ export default function UsersTable() {
                             </thead>
                             <tbody className="divide-y divide-gray-200 bg-white">
                                 {
-                                    new Array(8).fill(user).map((user: IUser, idx) => (
+                                    users.map((user: IUser, idx) => (
                                         <UserRow key={idx} {...user} />
                                     ))
                                 }
@@ -61,6 +52,9 @@ export default function UsersTable() {
 }
 
 const UserRow = ({ firstName, country, lastName, email, joinedAt }: IUser) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_show, setShowDelete] = useRecoilState(showDeleteUserModalState);
+
     return (
         <tr>
             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
@@ -71,6 +65,14 @@ const UserRow = ({ firstName, country, lastName, email, joinedAt }: IUser) => {
             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{email}
             </td>
             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{joinedAt}</td>
+            <Button className="rounded-md space-x-2" color="red" variant="solid"
+                onClick={() => setShowDelete({
+                    email, show: true
+                })}
+            >
+                <span>Delete</span>
+                <RiDeleteBin5Line />
+            </Button>
         </tr >
     )
 }

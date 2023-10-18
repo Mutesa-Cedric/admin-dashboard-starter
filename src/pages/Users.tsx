@@ -1,10 +1,33 @@
 import { FiPlus } from "react-icons/fi";
 import { Button } from "../components/Button";
 import UsersTable from "../components/UsersTable";
+import { IUser } from "../types";
+import { useEffect, useState } from "react";
+import LoadingState from "../components/states/LoadingState";
+import EmptyState from "../components/states/EmptyState";
+
+const user: IUser = {
+  country: "Rwanda",
+  firstName: "Hirwa",
+  lastName: "Vanessa",
+  email: "hirwavanessa@gmail.com",
+  joinedAt: "2022-09-07"
+}
 
 export default function Users() {
+  // replace this with actual api call.
+  const [fetchingUsers, setFetchingUsers] = useState(true);
+  const [users, setUsers] = useState<IUser[]>([]);
+
+  useEffect(() => {
+    setInterval(() => {
+      setUsers(new Array(12).fill(user));
+      setFetchingUsers(false);
+    }, 3000);
+  }, []);
+
   return (
-    <div className="space-y-4 pl">
+    <div className="space-y-4 px-6">
       <div className="w-full flex justify-between px-5">
         <div>
           <h2 className="text-xl font-medium text-gray-700">Users</h2>
@@ -15,7 +38,14 @@ export default function Users() {
           <FiPlus className="text-lg" />
         </Button>
       </div>
-      <UsersTable />
+      {/* when users are available */}
+      {(!fetchingUsers && users.length > 0) && < UsersTable users={users} />}
+
+      {/* when fetching users */}
+      {fetchingUsers && <LoadingState message="Fetching users..." />}
+
+      {/* when no users were found */}
+      {(!fetchingUsers && users.length === 0) && <EmptyState message="no users found!" />}
     </div>
   )
 }
