@@ -8,6 +8,7 @@ import { FormEvent, useState } from 'react'
 import toast from 'react-hot-toast'
 // navigate
 import {
+    Link,
     useNavigate
 } from "react-router-dom"
 export default function Login() {
@@ -35,13 +36,14 @@ export default function Login() {
                 <div className="relative z-10 flex flex-1 flex-col bg-white px-4 py-10 shadow-2xl sm:justify-center md:flex-none md:px-28">
                     <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
                         <div className="flex flex-col">
-                            {/* <Link to="/" aria-label="Home"> */}
-                            <Logo className="h-10 w-auto" />
-                            {/* </Link> */}
-                            <div className="mt-20">
+                            <Link to="/" aria-label="Home">
+                                <Logo className="h-10 w-auto" />
+                            </Link>
+                            <div className="mt-20 space-y-2">
                                 <h2 className="text-lg font-semibold text-gray-900">
                                     Sign in to your account
                                 </h2>
+                                <p className='text-sm text-gray-700'>(you can use any valid email and any valid password)</p>
                             </div>
                         </div>
                         <form onSubmit={(e) => handleSubmit(e)} className="mt-10 grid grid-cols-1 gap-y-8">

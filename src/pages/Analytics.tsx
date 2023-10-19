@@ -24,6 +24,9 @@ export default function Analytics() {
                     <h2 className="text-xl">Bar chart</h2>
                     <BarChart />
                 </div>
+                <div className="w-full bg-gray-100 rounded-md h-[30vh] mb-6 items-center justify-center flex text-xl">
+                    more charts coming soon ....
+                </div>
             </div>
         </div>
     )
